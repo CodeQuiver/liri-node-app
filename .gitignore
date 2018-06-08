@@ -1,3 +1,7 @@
+# the below is the boilerplate GitHub produces if you request a gitignore file for node, but I have checked it to ensure it contains everything needed, and add my own lines here at the top for what was missing
+
+.DS_Store
+
 # Logs
 logs
 *.log
