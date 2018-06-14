@@ -61,7 +61,7 @@ if (userCommand) {
     // =======================END READ COMMAND FROM RANDOM.TXT======================= //
     
     else {
-        console.log("Sorry, that's not an option. Please pick from the following: 'my-tweets' ");
+        console.log("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>'  ");
     }
 
 } 
