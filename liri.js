@@ -23,6 +23,8 @@ var userCommand = nodeArgs[2];
 if (userCommand) {
 
     // once we determine there is a command, then we run the if statement to see if it's one we have an answer for
+
+    // =======================TWITTER========================== //
     if (userCommand === 'my-tweets') {
         // Building the twitter API call via the convenience code setup by the twitter node module
         // wrapped the API call in an if statement to let it only run with the right command
@@ -35,8 +37,23 @@ if (userCommand) {
                     console.log("Posted: " + tweets[i].created_at);    
                 }    
     
-        }); 
-    } else {
+        });
+    }
+    // =======================END TWITTER========================== //
+
+    // =======================IMDB========================== //
+    else if (userCommand === 'movie-this') {
+
+    }
+    // =======================END IMDB========================== //
+
+    // =======================SPOTIFY========================== //
+    else if (userCommand === 'spotify-this-song') {
+
+    }
+    // =======================END SPOTIFY========================== //
+    
+    else {
         console.log("Sorry, that's not an option. Please pick from the following: 'my-tweets' ");
     }
 
