@@ -35,11 +35,16 @@ if (userCommand) {
                 for (var i = 0; i < tweets.length; i++) {
                     console.log("\nTweet " + (i + 1)+ ": " + tweets[i].text);
                     console.log("Posted: " + tweets[i].created_at);    
-                }    
-    
+                }
         });
     }
     // =======================END TWITTER========================== //
+
+    // =======================SPOTIFY========================== //
+    else if (userCommand === 'spotify-this-song') {
+
+    }
+    // =======================END SPOTIFY========================== //
 
     // =======================IMDB========================== //
     else if (userCommand === 'movie-this') {
@@ -47,11 +52,11 @@ if (userCommand) {
     }
     // =======================END IMDB========================== //
 
-    // =======================SPOTIFY========================== //
-    else if (userCommand === 'spotify-this-song') {
+    // =======================READ COMMAND FROM RANDOM.TXT========================== //
+    else if (userCommand === 'do-what-it-says') {
 
     }
-    // =======================END SPOTIFY========================== //
+    // =======================END READ COMMAND FROM RANDOM.TXT======================= //
     
     else {
         console.log("Sorry, that's not an option. Please pick from the following: 'my-tweets' ");
