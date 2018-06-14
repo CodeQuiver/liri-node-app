@@ -44,6 +44,16 @@ if (userCommand) {
     // =======================SPOTIFY========================== //
     else if (userCommand === 'spotify-this-song') {
         // userInputSpecific in this case will be the string with the song title
+        spotify.search({
+            type: 'track',
+            query: userInputSpecific }, 
+            function(err, data) {
+            if (err) {
+              return console.log('Error occurred: ' + err);
+            }
+           
+            console.log(data);
+            });
 
     }
     // =======================END SPOTIFY========================== //
