@@ -18,6 +18,7 @@ var nodeArgs = process.argv;
 
 // sets up a variable for the user commands for simplicity (will always be third b/c node and liri are first two)
 var userCommand = nodeArgs[2];
+var userInputSpecific = nodeArgs[3];
 
 // starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
 if (userCommand) {
@@ -42,6 +43,7 @@ if (userCommand) {
 
     // =======================SPOTIFY========================== //
     else if (userCommand === 'spotify-this-song') {
+        // userInputSpecific in this case will be the string with the song title
 
     }
     // =======================END SPOTIFY========================== //
@@ -65,7 +67,7 @@ if (userCommand) {
 } 
 
 else {
-    console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question: \nTo see your recent tweets, enter 'node liri.js my-tweets' ");
+    console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question: \nTo see your recent tweets, enter 'node liri.js my-tweets' \nTo find a song on Spotify, enter node liri.js spotify-this-song '<song name here>'");
 }
 
 
