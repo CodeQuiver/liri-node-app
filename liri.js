@@ -44,17 +44,30 @@ if (userCommand) {
     // =======================SPOTIFY========================== //
     else if (userCommand === 'spotify-this-song') {
         // userInputSpecific in this case will be the string with the song title
-        spotify.search({
-            type: 'track',
-            query: userInputSpecific }, 
-            function(err, data) {
-            if (err) {
-              return console.log('Error occurred: ' + err);
-            }
-           
-            console.log(data);
-            });
 
+        if (userInputSpecific) { // if input is truthy/not empty
+            spotify.search({
+                type: 'track',
+                limit: 3,
+                query: userInputSpecific }, 
+                function(err, data) {
+                if (err) {
+                  return console.log('Error occurred: ' + err);
+                }
+                // if no error, return data
+                
+               
+                console.log(data);
+                });
+    
+            
+        } else {
+            // if no song input, return default "The Sign" by Ace of Base
+            console.log("'The Sign' by Ace of Base");
+            
+        }
+
+        
     }
     // =======================END SPOTIFY========================== //
 
