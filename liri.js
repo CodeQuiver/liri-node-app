@@ -44,8 +44,8 @@ if (userCommand) {
     // =======================SPOTIFY========================== //
     else if (userCommand === 'spotify-this-song') {
         // userInputSpecific in this case will be the string with the song title
-        // limit of results set by default to 3 rather than the package's 20 default for simplicity since some searches will return multiple hits
-        // Weird search results- not getting any accuracy matching the track names
+        // limit of results set by default to 1 rather than the package's 20 default for simplicity since some searches will return multiple hits
+        // hard-coded double quotes around the user string input for a stricter search beacuse otherwise each word is treated as an independent search term
 
         if (userInputSpecific) { // if input is truthy/not empty
             spotify.search({
@@ -57,25 +57,28 @@ if (userCommand) {
                 if (err) {
                   return console.log('Error occurred: ' + err);
                 }
-                // if no error, return data               
-                // console.log(data);
+                // if no error, return data
                 console.log("Name of Track: " + data.tracks.items[0].name);
                 console.log("Artist: " + data.tracks.items[0].album.artists[0].name); // artist name
                 console.log("Album: " + data.tracks.items[0].album.name);// album name
-                console.log(data.tracks.items[0]);// preview link- still constructing
-
-
+                console.log("Link to Track: " + data.tracks.items[0].href);// link to track
 
                 });
     
-            
         } else {
             // if no song input, return default "The Sign" by Ace of Base
-            console.log("The Sign by Ace of Base");
-            
-        }
+            spotify.request('https://api.spotify.com/v1/tracks/0hrBpAOgrt8RXigk83LLNE')
+            .then(function(data) {
+                console.log("Name of Track: " + data.name);
+                console.log("Artist: " + data.artists[0].name); // artist name
+                console.log("Album: " + data.album.name);// album name
+                console.log("Link to Track: " + data.href);// link to track
 
-        
+            })
+            .catch(function(err) {
+              console.error('Error occurred: ' + err); 
+            });
+        }        
     }
     // =======================END SPOTIFY========================== //
 
