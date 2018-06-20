@@ -51,25 +51,7 @@ var userInputSpecific = nodeArgs[3];
 
     //SPOTIFY Function
     function spotifyCall() {
-        
-    };
-
-// ===========================END FUNCTIONS=======================
-
-// starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
-if (userCommand) {
-
-    // once we determine there is a command, then we run the if statement to see if it's one we have an answer for
-
-    // =======================TWITTER========================== //
-    if (userCommand === 'my-tweets') {
-        tweetCall();
-    }
-    // =======================END TWITTER========================== //
-
-    // =======================SPOTIFY========================== //
-    else if (userCommand === 'spotify-this-song') {
-        // userInputSpecific in this case will be the string with the song title
+         // userInputSpecific in this case will be the string with the song title
         // limit of results set by default to 1 rather than the package's 20 default for simplicity since some searches will return multiple hits
         // hard-coded double quotes around the user string input for a stricter search beacuse otherwise each word is treated as an independent search term
 
@@ -106,6 +88,24 @@ if (userCommand) {
               console.error('Error occurred: ' + err); 
             });
         }        
+    };
+
+// ===========================END FUNCTIONS=======================
+
+// starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
+if (userCommand) {
+
+    // once we determine there is a command, then we run the if statement to see if it's one we have an answer for
+
+    // =======================TWITTER========================== //
+    if (userCommand === 'my-tweets') {
+        tweetCall();
+    }
+    // =======================END TWITTER========================== //
+
+    // =======================SPOTIFY========================== //
+    else if (userCommand === 'spotify-this-song') {
+        spotifyCall();
     }
     // =======================END SPOTIFY========================== //
 
