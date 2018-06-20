@@ -90,6 +90,44 @@ var userInputSpecific = nodeArgs[3];
         }        
     };
 
+    //OMDB Function
+    function movieCall() {
+       // initialize variable
+       var prettyOmdb = "";
+       //format of request
+       // http://www.omdbapi.com/?apikey=trilogy&s=Mr.+Nobody&type=movie&r=json
+       var queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + userInputSpecific + "&type=movie&r=json";
+
+       if (userInputSpecific) {
+           // Request to the OMDB API with the movie specified
+           request(queryURL, function(error, response, body) {
+
+               // If the request is successful (i.e. if the response status code is 200)
+               if (!error && response.statusCode === 200) {
+       
+                   // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+                   prettyOmdb = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
+                   omdbPrint(prettyOmdb); // calls the printing function using the pretty-print JSON object
+               }
+           });
+
+       }
+       else {
+           userInputSpecific = "Mr. Nobody"; // if no input from user, set it to the default Mr. Nobody
+           queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + userInputSpecific + "&type=movie&r=json";
+           // Request to the OMDB API with the movie specified
+           request(queryURL, function(error, response, body) {
+
+               // If the request is successful (i.e. if the response status code is 200)
+               if (!error && response.statusCode === 200) {
+
+                   prettyOmdb = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
+                   omdbPrint(prettyOmdb); // calls the printing function using the pretty-print JSON object
+               }
+           });
+       } 
+    };
+
 // ===========================END FUNCTIONS=======================
 
 // starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
@@ -111,40 +149,7 @@ if (userCommand) {
 
     // =======================OMDB========================== //
     else if (userCommand === 'movie-this') {
-        // initialize variable
-        var prettyOmdb = "";
-        //format of request
-        // http://www.omdbapi.com/?apikey=trilogy&s=Mr.+Nobody&type=movie&r=json
-        var queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + userInputSpecific + "&type=movie&r=json";
-
-        if (userInputSpecific) {
-            // Request to the OMDB API with the movie specified
-            request(queryURL, function(error, response, body) {
-
-                // If the request is successful (i.e. if the response status code is 200)
-                if (!error && response.statusCode === 200) {
-        
-                    // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-                    prettyOmdb = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
-                    omdbPrint(prettyOmdb); // calls the printing function using the pretty-print JSON object
-                }
-            });
-
-        }
-        else {
-            userInputSpecific = "Mr. Nobody"; // if no input from user, set it to the default Mr. Nobody
-            queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + userInputSpecific + "&type=movie&r=json";
-            // Request to the OMDB API with the movie specified
-            request(queryURL, function(error, response, body) {
-
-                // If the request is successful (i.e. if the response status code is 200)
-                if (!error && response.statusCode === 200) {
-
-                    prettyOmdb = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
-                    omdbPrint(prettyOmdb); // calls the printing function using the pretty-print JSON object
-                }
-            });
-        }
+        movieCall();
     }
     // =======================END OMDB========================== //
 
