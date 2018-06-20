@@ -22,7 +22,7 @@ var userInputSpecific = nodeArgs[3];
 
 
 // ===========================FUNCTIONS===========================
-    //OMDB print function
+    //OMDB print function called within main OMDB function
     function omdbPrint(movieInfo) {
         console.log("Title: " + movieInfo.Title);
         console.log("Year: "+ movieInfo.Year); // Year the movie came out.
@@ -67,10 +67,13 @@ var userInputSpecific = nodeArgs[3];
                 }
                 // if no error, return data
                 console.log("Name of Track: " + data.tracks.items[0].name);
-                console.log("Artist: " + data.tracks.items[0].album.artists[0].name); // artist name
-                console.log("Album: " + data.tracks.items[0].album.name);// album name
-                console.log("Link to Track: " + data.tracks.items[0].href);// link to track
-
+                console.log("Artist: " + data.tracks.items[0].album.artists[0].name); //artist name
+                console.log("Album: " + data.tracks.items[0].album.name); //album name
+                    if (data.tracks.items[0].preview_url) {
+                        console.log("Link to Track Preview: " + data.tracks.items[0].preview_url); // link to preview of track if available
+                    } else {
+                        console.log("Link to Track with Login (Preview unavailable): " + data.tracks.items[0].external_urls.spotify); // link to track if no preview available since some tracks return null                  
+                    };
                 });
     
         } else {
@@ -79,26 +82,26 @@ var userInputSpecific = nodeArgs[3];
             spotify.request('https://api.spotify.com/v1/tracks/0hrBpAOgrt8RXigk83LLNE')
             .then(function(data) {
                 console.log("Name of Track: " + data.name);
-                console.log("Artist: " + data.artists[0].name); // artist name
-                console.log("Album: " + data.album.name);// album name
-                console.log("Link to Track: " + data.href);// link to track
+                console.log("Artist: " + data.artists[0].name); //artist name
+                console.log("Album: " + data.album.name); //album name
+                console.log("Link to Track Preview: " + data.preview_url);// link to track preview, which is available for this default
 
             })
             .catch(function(err) {
               console.error('Error occurred: ' + err); 
             });
-        }        
+        }       
     };
 
     //OMDB Function
-    function movieCall() {
+    function movieCall(movieInputSpecific) {
        // initialize variable
        var prettyOmdb = "";
        //format of request
        // http://www.omdbapi.com/?apikey=trilogy&s=Mr.+Nobody&type=movie&r=json
-       var queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + userInputSpecific + "&type=movie&r=json";
+       var queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + movieInputSpecific + "&type=movie&r=json";
 
-       if (userInputSpecific) {
+       if (movieInputSpecific) {
            // Request to the OMDB API with the movie specified
            request(queryURL, function(error, response, body) {
 
@@ -113,8 +116,8 @@ var userInputSpecific = nodeArgs[3];
 
        }
        else {
-           userInputSpecific = "Mr. Nobody"; // if no input from user, set it to the default Mr. Nobody
-           queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + userInputSpecific + "&type=movie&r=json";
+           movieInputSpecific = "Mr. Nobody"; // if no input from user, set it to the default Mr. Nobody
+           queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + movieInputSpecific + "&type=movie&r=json";
            // Request to the OMDB API with the movie specified
            request(queryURL, function(error, response, body) {
 
@@ -136,12 +139,8 @@ var userInputSpecific = nodeArgs[3];
             if (error) {
               return console.log("Error occurred: " + error);
             }
-          
-            // We will then print the contents of data
-            // console.log(data);
-          
-            // Then split it by commas (to make it more readable)
-            var dataArr = data.split(",");
+            
+            var dataArr = data.split(","); //split it by commas
 
             // set new arguments
             readUserCommand = dataArr[0];
@@ -153,7 +152,6 @@ var userInputSpecific = nodeArgs[3];
             }
 
             // call function that re-runs the command processing part of the script with new values
-                //NOTE- see if this has control flow problems or not b/c may be calling a function before it's defined
             else {
                 pickCommand(readUserCommand, readUserInputSpecific);
             }
@@ -177,7 +175,7 @@ var userInputSpecific = nodeArgs[3];
 
         // =======================OMDB========================== //
         else if (command === 'movie-this') {
-            movieCall();
+            movieCall(inputSpecific);
         }
         // =======================END OMDB========================== //
 
@@ -188,7 +186,7 @@ var userInputSpecific = nodeArgs[3];
         // =======================END READ COMMAND FROM RANDOM.TXT======================= //
         
         else {
-            console.log("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>'  ");
+            console.log("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>' \nmovie-this '<movie name here>' \ndo-what-it-says ");
         }
     };
 
@@ -203,7 +201,7 @@ if (userCommand) {
     pickCommand(userCommand, userInputSpecific); //these values being called are pulled from the global variables
 }
 else {
-    console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question: \nTo see your recent tweets, enter 'node liri.js my-tweets' \nTo find a song on Spotify, enter node liri.js spotify-this-song '<song name here>'");
+    console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question! \nTo see your recent tweets, enter: node liri.js my-tweets \nTo find a song on Spotify, enter: node liri.js spotify-this-song '<song name here>' \nTo look up a movie, enter: movie-this '<movie name here>' \nTo run a command from the random.txt file, enter: do-what-it-says ");
 }
 
 // ===========================END CODE BODY=======================================================
