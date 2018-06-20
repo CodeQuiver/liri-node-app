@@ -83,6 +83,7 @@ if (userCommand) {
     
         } else {
             // if no song input, return default "The Sign" by Ace of Base
+            // uses the specific track request rather than search function
             spotify.request('https://api.spotify.com/v1/tracks/0hrBpAOgrt8RXigk83LLNE')
             .then(function(data) {
                 console.log("Name of Track: " + data.name);
@@ -139,6 +140,34 @@ if (userCommand) {
 
     // =======================READ COMMAND FROM RANDOM.TXT========================== //
     else if (userCommand === 'do-what-it-says') {
+        fs.readFile("random.txt", "utf8", function(error, data) {
+
+            // If the code experiences any errors it will log the error to the console.
+            if (error) {
+              return console.log("Error occurred: " + error);
+            }
+          
+            // We will then print the contents of data
+            // console.log(data);
+          
+            // Then split it by commas (to make it more readable)
+            var dataArr = data.split(",");
+
+            // set new arguments
+            readUserCommand = dataArr[0];
+            readUserInputSpecific = dataArr[1];
+
+            // check for infinite loop if UserCommand read from file is 'do-what-it-says' and if so throws error message and exits
+            if (readUserCommand === 'do-what-it-says') {
+                return console.log("Oops, the command in that file will cause an error by running itself on an infinite loop. Please correct random.txt before entering 'do-what-it-says' again, or try a new command.");
+            }
+
+            // call function that re-runs the command processing part of the script with new values
+            else {
+                // unnamedFunction(readUserCommand, readUserInputSpecific);
+            }
+          
+        });
 
     }
     // =======================END READ COMMAND FROM RANDOM.TXT======================= //
