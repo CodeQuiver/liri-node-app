@@ -22,27 +22,20 @@ var userInputSpecific = nodeArgs[3];
 
 
 // ===========================FUNCTIONS===========================
-//OMDB print function
-function omdbPrint(movieInfo) {
-    console.log("Title: " + movieInfo.Title);
-    console.log("Year: "+ movieInfo.Year); // Year the movie came out.
-    console.log("IMDB Rating: "+ movieInfo.imdbRating); // * IMDB Rating
-    console.log(movieInfo.Ratings[1].Source + " Rating: " + movieInfo.Ratings[1].Value); // * Rotten Tomatoes Rating
-    console.log("Produced in: " + movieInfo.Country);// * Country where the movie was produced.
-    console.log("Language(s): " + movieInfo.Language);// * Language
-    console.log("Plot: " + movieInfo.Plot);// * Plot
-    console.log("Actors: " + movieInfo.Actors);// * Actors    
-};
+    //OMDB print function
+    function omdbPrint(movieInfo) {
+        console.log("Title: " + movieInfo.Title);
+        console.log("Year: "+ movieInfo.Year); // Year the movie came out.
+        console.log("IMDB Rating: "+ movieInfo.imdbRating); // * IMDB Rating
+        console.log(movieInfo.Ratings[1].Source + " Rating: " + movieInfo.Ratings[1].Value); // * Rotten Tomatoes Rating
+        console.log("Produced in: " + movieInfo.Country);// * Country where the movie was produced.
+        console.log("Language(s): " + movieInfo.Language);// * Language
+        console.log("Plot: " + movieInfo.Plot);// * Plot
+        console.log("Actors: " + movieInfo.Actors);// * Actors    
+    };
 
-// ===========================END FUNCTIONS=======================
-
-// starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
-if (userCommand) {
-
-    // once we determine there is a command, then we run the if statement to see if it's one we have an answer for
-
-    // =======================TWITTER========================== //
-    if (userCommand === 'my-tweets') {
+    //TWITTER Function
+    function tweetCall() {
         // Building the twitter API call via the convenience code setup by the twitter node module
         // wrapped the API call in an if statement to let it only run with the right command
         client.get('statuses/user_timeline', {count: 20}, function(error, tweets, response) {
@@ -54,6 +47,23 @@ if (userCommand) {
                     console.log("Posted: " + tweets[i].created_at);    
                 }
         });
+    };
+
+    //SPOTIFY Function
+    function spotifyCall() {
+        
+    };
+
+// ===========================END FUNCTIONS=======================
+
+// starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
+if (userCommand) {
+
+    // once we determine there is a command, then we run the if statement to see if it's one we have an answer for
+
+    // =======================TWITTER========================== //
+    if (userCommand === 'my-tweets') {
+        tweetCall();
     }
     // =======================END TWITTER========================== //
 
