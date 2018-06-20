@@ -20,6 +20,22 @@ var nodeArgs = process.argv;
 var userCommand = nodeArgs[2];
 var userInputSpecific = nodeArgs[3];
 
+
+// ===========================FUNCTIONS===========================
+//OMDB print function
+function omdbPrint(movieInfo) {
+    console.log("Title: " + movieInfo.Title);
+    console.log("Year: "+ movieInfo.Year); // Year the movie came out.
+    console.log("IMDB Rating: "+ movieInfo.imdbRating); // * IMDB Rating
+    console.log(movieInfo.Ratings[1].Source + " Rating: " + movieInfo.Ratings[1].Value); // * Rotten Tomatoes Rating
+    console.log("Produced in: " + movieInfo.Country);// * Country where the movie was produced.
+    console.log("Language(s): " + movieInfo.Language);// * Language
+    console.log("Plot: " + movieInfo.Plot);// * Plot
+    console.log("Actors: " + movieInfo.Actors);// * Actors    
+};
+
+// ===========================END FUNCTIONS=======================
+
 // starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
 if (userCommand) {
 
@@ -84,6 +100,8 @@ if (userCommand) {
 
     // =======================OMDB========================== //
     else if (userCommand === 'movie-this') {
+        // initialize variable
+        var prettyOmdb = "";
         //format of request
         // http://www.omdbapi.com/?apikey=trilogy&s=Mr.+Nobody&type=movie&r=json
         var queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + userInputSpecific + "&type=movie&r=json";
@@ -95,15 +113,9 @@ if (userCommand) {
                 // If the request is successful (i.e. if the response status code is 200)
                 if (!error && response.statusCode === 200) {
         
-                // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-                console.log("Title: " + JSON.parse(body).Title);
-                console.log("Year: "+ JSON.parse(body).Year); // Year the movie came out.
-                console.log("IMDB Rating: "+ JSON.parse(body).imdbRating); // * IMDB Rating
-                console.log(JSON.parse(body).Ratings[1].Source + " Rating: " + JSON.parse(body).Ratings[1].Value); // * Rotten Tomatoes Rating
-                console.log("Produced in: " + JSON.parse(body).Country);// * Country where the movie was produced.
-                console.log("Language(s): " + JSON.parse(body).Language);// * Language
-                console.log("Plot: " + JSON.parse(body).Plot);// * Plot
-                console.log("Actors: " + JSON.parse(body).Actors);// * Actors
+                    // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+                    prettyOmdb = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
+                    omdbPrint(prettyOmdb); // calls the printing function using the pretty-print JSON object
                 }
             });
 
@@ -116,16 +128,9 @@ if (userCommand) {
 
                 // If the request is successful (i.e. if the response status code is 200)
                 if (!error && response.statusCode === 200) {
-        
-                // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-                console.log("Title: " + JSON.parse(body).Title);
-                console.log("Year: "+ JSON.parse(body).Year); // Year the movie came out.
-                console.log("IMDB Rating: "+ JSON.parse(body).imdbRating); // * IMDB Rating
-                console.log(JSON.parse(body).Ratings[1].Source + " Rating: " + JSON.parse(body).Ratings[1].Value); // * Rotten Tomatoes Rating
-                console.log("Produced in: " + JSON.parse(body).Country);// * Country where the movie was produced.
-                console.log("Language(s): " + JSON.parse(body).Language);// * Language
-                console.log("Plot: " + JSON.parse(body).Plot);// * Plot
-                console.log("Actors: " + JSON.parse(body).Actors);// * Actors
+
+                    prettyOmdb = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
+                    omdbPrint(prettyOmdb); // calls the printing function using the pretty-print JSON object
                 }
             });
         }
