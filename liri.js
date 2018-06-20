@@ -50,15 +50,15 @@ var userInputSpecific = nodeArgs[3];
     };
 
     //SPOTIFY Function
-    function spotifyCall() {
-         // userInputSpecific in this case will be the string with the song title
+    function spotifyCall(spotInputSpecific) {
+         // spotInputSpecific in this case will be the string with the song title
         // limit of results set by default to 1 rather than the package's 20 default for simplicity since some searches will return multiple hits
         // hard-coded double quotes around the user string input for a stricter search beacuse otherwise each word is treated as an independent search term
 
-        if (userInputSpecific) { // if input is truthy/not empty
+        if (spotInputSpecific) { // if input is truthy/not empty
             spotify.search({
                 type: 'track',
-                query: '"' + userInputSpecific + '"',
+                query: '"' + spotInputSpecific + '"',
                 limit: 1
                  }, 
                 function(err, data) {
@@ -128,33 +128,8 @@ var userInputSpecific = nodeArgs[3];
        } 
     };
 
-// ===========================END FUNCTIONS=======================
-
-// starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
-if (userCommand) {
-
-    // once we determine there is a command, then we run the if statement to see if it's one we have an answer for
-
-    // =======================TWITTER========================== //
-    if (userCommand === 'my-tweets') {
-        tweetCall();
-    }
-    // =======================END TWITTER========================== //
-
-    // =======================SPOTIFY========================== //
-    else if (userCommand === 'spotify-this-song') {
-        spotifyCall();
-    }
-    // =======================END SPOTIFY========================== //
-
-    // =======================OMDB========================== //
-    else if (userCommand === 'movie-this') {
-        movieCall();
-    }
-    // =======================END OMDB========================== //
-
-    // =======================READ COMMAND FROM RANDOM.TXT========================== //
-    else if (userCommand === 'do-what-it-says') {
+    //READ-THIS Function
+    function readThisCall() {
         fs.readFile("random.txt", "utf8", function(error, data) {
 
             // If the code experiences any errors it will log the error to the console.
@@ -178,24 +153,60 @@ if (userCommand) {
             }
 
             // call function that re-runs the command processing part of the script with new values
+                //NOTE- see if this has control flow problems or not b/c may be calling a function before it's defined
             else {
-                // unnamedFunction(readUserCommand, readUserInputSpecific);
+                pickCommand(readUserCommand, readUserInputSpecific);
             }
           
         });
+    };
 
-    }
-    // =======================END READ COMMAND FROM RANDOM.TXT======================= //
-    
-    else {
-        console.log("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>'  ");
-    }
+    //COMMAND PICK FUNCTION
+    function pickCommand(command, inputSpecific) {
+        // =======================TWITTER========================== //
+        if (command === 'my-tweets') {
+            tweetCall();
+        }
+        // =======================END TWITTER========================== //
 
-} 
+        // =======================SPOTIFY========================== //
+        else if (command === 'spotify-this-song') {
+            spotifyCall(inputSpecific);
+        }
+        // =======================END SPOTIFY========================== //
 
+        // =======================OMDB========================== //
+        else if (command === 'movie-this') {
+            movieCall();
+        }
+        // =======================END OMDB========================== //
+
+        // =======================READ COMMAND FROM RANDOM.TXT========================== //
+        else if (command === 'do-what-it-says') {
+            readThisCall();
+        }
+        // =======================END READ COMMAND FROM RANDOM.TXT======================= //
+        
+        else {
+            console.log("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>'  ");
+        }
+    };
+
+// ===========================END FUNCTIONS====================================================
+
+// ===========================CODE BODY========================================================
+
+// starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
+if (userCommand) {
+
+    //determine there is a command, then run pickCommand function to see if it's one we have an answer for
+    pickCommand(userCommand, userInputSpecific); //these values being called are pulled from the global variables
+}
 else {
     console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question: \nTo see your recent tweets, enter 'node liri.js my-tweets' \nTo find a song on Spotify, enter node liri.js spotify-this-song '<song name here>'");
 }
+
+// ===========================END CODE BODY=======================================================
 
 
 
