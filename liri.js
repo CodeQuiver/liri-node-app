@@ -4,10 +4,12 @@ require("dotenv").config();
 // will need fs to read and write files
 var fs = require("fs");
 
+// setting up all node packages
 var request = require('request');
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
 
+// setting up keys file and accessing
 var keys = require("./keys.js");
 
 var spotify = new Spotify(keys.spotify);
@@ -21,7 +23,9 @@ var userCommand = nodeArgs[2];
 var userInputSpecific = nodeArgs[3];
 
 // ===========================FUNCTIONS===========================
-    //OMDB print function called within main OMDB function
+    
+    //===============OMDB print function===================//
+    // called within main OMDB function
     function omdbPrint(movieInfo) {
         console.log("Title: " + movieInfo.Title);
         console.log("Year: "+ movieInfo.Year); // Year the movie came out.
@@ -32,8 +36,9 @@ var userInputSpecific = nodeArgs[3];
         console.log("Plot: " + movieInfo.Plot);// * Plot
         console.log("Actors: " + movieInfo.Actors);// * Actors    
     };
+    //===============END OMDB print function===================//
 
-    //TWITTER Function
+    // =======================TWITTER========================== //
     function tweetCall() {
         // Building the twitter API call via the convenience code setup by the twitter node module
         // wrapped the API call in an if statement to let it only run with the right command
@@ -47,8 +52,9 @@ var userInputSpecific = nodeArgs[3];
                 }
         });
     };
+    // =======================END TWITTER========================== //
 
-    //SPOTIFY Function
+    // =======================SPOTIFY========================== //
     function spotifyCall(spotInputSpecific) {
          // spotInputSpecific in this case will be the string with the song title
         // limit of results set by default to 1 rather than the package's 20 default for simplicity since some searches will return multiple hits
@@ -84,20 +90,19 @@ var userInputSpecific = nodeArgs[3];
                 console.log("Artist: " + data.artists[0].name); //artist name
                 console.log("Album: " + data.album.name); //album name
                 console.log("Link to Track Preview: " + data.preview_url);// link to track preview, which is available for this default
-
             })
             .catch(function(err) {
               console.error('Error occurred: ' + err); 
             });
         }       
     };
+    // =======================END SPOTIFY========================== //
 
-    //OMDB Function
+    // =======================OMDB========================== //
     function movieCall(movieInputSpecific) {
        // initialize variable
        var prettyOmdb = "";
-       //format of request
-       // http://www.omdbapi.com/?apikey=trilogy&s=Mr.+Nobody&type=movie&r=json
+       //format of request - http://www.omdbapi.com/?apikey=trilogy&s=Mr.+Nobody&type=movie&r=json
        var queryURL = "http://www.omdbapi.com/?apikey=trilogy&t=" + movieInputSpecific + "&type=movie&r=json";
 
        if (movieInputSpecific) {
@@ -129,8 +134,9 @@ var userInputSpecific = nodeArgs[3];
            });
        } 
     };
+    // =======================END OMDB========================== //
 
-    //READ-THIS Function
+    // =======================READ COMMAND FROM RANDOM.TXT========================== //
     function readThisCall() {
         fs.readFile("random.txt", "utf8", function(error, data) {
 
@@ -157,53 +163,45 @@ var userInputSpecific = nodeArgs[3];
           
         });
     };
+    // =======================END READ COMMAND FROM RANDOM.TXT======================= //
 
-    //COMMAND PICK FUNCTION
-    function pickCommand(command, inputSpecific) {
-        // =======================TWITTER========================== //
+    // =======================COMMAND PICK FUNCTION======================= //
+    //calls correct API function based on user's command input
+    function pickCommand(command, inputSpecific) {        
         if (command === 'my-tweets') {
             tweetCall();
         }
-        // =======================END TWITTER========================== //
-
-        // =======================SPOTIFY========================== //
         else if (command === 'spotify-this-song') {
             spotifyCall(inputSpecific);
-        }
-        // =======================END SPOTIFY========================== //
-
-        // =======================OMDB========================== //
+        }        
         else if (command === 'movie-this') {
             movieCall(inputSpecific);
         }
-        // =======================END OMDB========================== //
-
-        // =======================READ COMMAND FROM RANDOM.TXT========================== //
         else if (command === 'do-what-it-says') {
             readThisCall();
-        }
-        // =======================END READ COMMAND FROM RANDOM.TXT======================= //
-        
+        }        
         else {
             console.log("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>' \nmovie-this '<movie name here>' \ndo-what-it-says ");
         }
     };
+    // =======================END COMMAND PICK FUNCTION======================= //    
 
-// ===========================END FUNCTIONS====================================================
+// ===========================END FUNCTIONS==================================================== //
 
-// ===========================CODE BODY========================================================
 
-// starts the program with a check for a command, otherwise greeting and prompt to enter a command if there is no third argument entered
+// ===========================CODE BODY========================================================== //
+
+// starts the program with a check for a command, otherwise greeting and prompt to enter a command
 if (userCommand) {
 
     //determine there is a command, then run pickCommand function to see if it's one we have an answer for
-    pickCommand(userCommand, userInputSpecific); //these values being called are pulled from the global variables
+    pickCommand(userCommand, userInputSpecific); //values being called are pulled from the global variables
 }
 else {
     console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question! \nTo see your recent tweets, enter: node liri.js my-tweets \nTo find a song on Spotify, enter: node liri.js spotify-this-song '<song name here>' \nTo look up a movie, enter: movie-this '<movie name here>' \nTo run a command from the random.txt file, enter: do-what-it-says ");
 }
 
-// ===========================END CODE BODY=======================================================
+// ===========================END CODE BODY======================================================= //
 
 
 
