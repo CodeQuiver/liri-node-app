@@ -20,7 +20,6 @@ var nodeArgs = process.argv;
 var userCommand = nodeArgs[2];
 var userInputSpecific = nodeArgs[3];
 
-
 // ===========================FUNCTIONS===========================
     //OMDB print function called within main OMDB function
     function omdbPrint(movieInfo) {
