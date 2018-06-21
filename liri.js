@@ -23,18 +23,34 @@ var userCommand = nodeArgs[2];
 var userInputSpecific = nodeArgs[3];
 
 // ===========================FUNCTIONS===========================
+    //================LOG Function==========================// Logs to console AND to the log file
+    function bothLog(addThis) {
+        // CONSOLE LOG section
+        console.log(addThis);
+        
+        // WRITE section
+        // If the file didn't exist then it gets created on the fly.
+        // We then append the contents passed in into the file
+        fs.appendFile("log.txt",addThis + "\n", function(err) {
+            // If an error was experienced we say it.
+            if (err) {
+            console.log("Error Writing to log.txt: " + err);
+            }        
+        });
+    };    
+    //================END LOG Function==========================//
     
     //===============OMDB print function===================//
     // called within main OMDB function
     function omdbPrint(movieInfo) {
-        console.log("Title: " + movieInfo.Title);
-        console.log("Year: "+ movieInfo.Year); // Year the movie came out.
-        console.log("IMDB Rating: "+ movieInfo.imdbRating); // * IMDB Rating
-        console.log(movieInfo.Ratings[1].Source + " Rating: " + movieInfo.Ratings[1].Value); // * Rotten Tomatoes Rating
-        console.log("Produced in: " + movieInfo.Country);// * Country where the movie was produced.
-        console.log("Language(s): " + movieInfo.Language);// * Language
-        console.log("Plot: " + movieInfo.Plot);// * Plot
-        console.log("Actors: " + movieInfo.Actors);// * Actors    
+        bothLog("Title: " + movieInfo.Title);
+        bothLog("Year: "+ movieInfo.Year); // Year the movie came out.
+        bothLog("IMDB Rating: "+ movieInfo.imdbRating); // * IMDB Rating
+        bothLog(movieInfo.Ratings[1].Source + " Rating: " + movieInfo.Ratings[1].Value); // * Rotten Tomatoes Rating
+        bothLog("Produced in: " + movieInfo.Country);// * Country where the movie was produced.
+        bothLog("Language(s): " + movieInfo.Language);// * Language
+        bothLog("Plot: " + movieInfo.Plot);// * Plot
+        bothLog("Actors: " + movieInfo.Actors);// * Actors    
     };
     //===============END OMDB print function===================//
 
@@ -47,8 +63,8 @@ var userInputSpecific = nodeArgs[3];
     
                 //for loop here to loop through each tweet in array
                 for (var i = 0; i < tweets.length; i++) {
-                    console.log("\nTweet " + (i + 1)+ ": " + tweets[i].text);
-                    console.log("Posted: " + tweets[i].created_at);    
+                    bothLog("Tweet " + (i + 1)+ ": " + tweets[i].text);
+                    bothLog("Posted: " + tweets[i].created_at + "\n");    
                 }
         });
     };
@@ -68,16 +84,16 @@ var userInputSpecific = nodeArgs[3];
                  }, 
                 function(err, data) {
                 if (err) {
-                  return console.log('Error occurred: ' + err);
+                  return bothLog('Error occurred: ' + err);
                 }
                 // if no error, return data
-                console.log("Name of Track: " + data.tracks.items[0].name);
-                console.log("Artist: " + data.tracks.items[0].album.artists[0].name); //artist name
-                console.log("Album: " + data.tracks.items[0].album.name); //album name
+                bothLog("Name of Track: " + data.tracks.items[0].name);
+                bothLog("Artist: " + data.tracks.items[0].album.artists[0].name); //artist name
+                bothLog("Album: " + data.tracks.items[0].album.name); //album name
                     if (data.tracks.items[0].preview_url) {
-                        console.log("Link to Track Preview: " + data.tracks.items[0].preview_url); // link to preview of track if available
+                        bothLog("Link to Track Preview: " + data.tracks.items[0].preview_url); // link to preview of track if available
                     } else {
-                        console.log("Link to Track with Login (Preview unavailable): " + data.tracks.items[0].external_urls.spotify); // link to track if no preview available since some tracks return null                  
+                        bothLog("Link to Track with Login (Preview unavailable): " + data.tracks.items[0].external_urls.spotify); // link to track if no preview available since some tracks return null                  
                     };
                 });
     
@@ -86,10 +102,10 @@ var userInputSpecific = nodeArgs[3];
             // uses the specific track request rather than search function
             spotify.request('https://api.spotify.com/v1/tracks/0hrBpAOgrt8RXigk83LLNE')
             .then(function(data) {
-                console.log("Name of Track: " + data.name);
-                console.log("Artist: " + data.artists[0].name); //artist name
-                console.log("Album: " + data.album.name); //album name
-                console.log("Link to Track Preview: " + data.preview_url);// link to track preview, which is available for this default
+                bothLog("Name of Track: " + data.name);
+                bothLog("Artist: " + data.artists[0].name); //artist name
+                bothLog("Album: " + data.album.name); //album name
+                bothLog("Link to Track Preview: " + data.preview_url); // link to track preview, which is available for this default
             })
             .catch(function(err) {
               console.error('Error occurred: ' + err); 
@@ -142,7 +158,7 @@ var userInputSpecific = nodeArgs[3];
 
             // If the code experiences any errors it will log the error to the console.
             if (error) {
-              return console.log("Error occurred: " + error);
+              return bothLog("Error occurred: " + error);
             }
             
             var dataArr = data.split(","); //split it by commas
@@ -153,7 +169,7 @@ var userInputSpecific = nodeArgs[3];
 
             // check for infinite loop if UserCommand read from file is 'do-what-it-says' and if so throws error message and exits
             if (readUserCommand === 'do-what-it-says') {
-                return console.log("Oops, the command in that file will cause an error by running itself on an infinite loop. Please correct random.txt before entering 'do-what-it-says' again, or try a new command.");
+                return bothLog("Oops, the command in that file will cause an error by running itself on an infinite loop. Please correct random.txt before entering 'do-what-it-says' again, or try a new command.");
             }
 
             // call function that re-runs the command processing part of the script with new values
@@ -181,7 +197,7 @@ var userInputSpecific = nodeArgs[3];
             readThisCall();
         }        
         else {
-            console.log("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>' \nmovie-this '<movie name here>' \ndo-what-it-says ");
+            bothLog("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>' \nmovie-this '<movie name here>' \ndo-what-it-says ");
         }
     };
     // =======================END COMMAND PICK FUNCTION======================= //    
@@ -196,6 +212,16 @@ if (userCommand) {
 
     //determine there is a command, then run pickCommand function to see if it's one we have an answer for
     pickCommand(userCommand, userInputSpecific); //values being called are pulled from the global variables
+    
+    var printCommands = "";
+    
+    for (i = 2; i < nodeArgs.length; i++) {
+        // Print each element (item) of the array starting at 2 since first two are always "node liri.js"
+        printCommands = printCommands + " " + nodeArgs[i];        
+    }
+
+    bothLog("\nYou Entered:" + printCommands + "\n");
+
 }
 else {
     console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question! \nTo see your recent tweets, enter: node liri.js my-tweets \nTo find a song on Spotify, enter: node liri.js spotify-this-song '<song name here>' \nTo look up a movie, enter: movie-this '<movie name here>' \nTo run a command from the random.txt file, enter: do-what-it-says ");

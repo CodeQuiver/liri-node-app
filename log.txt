@@ -1,0 +1,134 @@
+
+Command(s) Entered: spotify-this-song rhapsody in blue
+Artist: Leonard Bernstein
+Name of Track: Rhapsody in Blue - Remastered
+Link to Track Preview: https://p.scdn.co/mp3-preview/7729c0e7f555c0766177d6166b73c8ff5506911c?cid=f703791f9df442d0b248963339389a87
+Album: Shostakovich: Piano Concerto No. 2 - Ravel: Piano Concerto in G Major - Gershwin: Rhapsody in Blue
+
+Command Entered: my-tweets
+
+Tweet 1: Twitter reminds me
+of Emily
+Dickinson
+very     broken     lines of
+poetry
+sometimes
+
+Tweet 2: Cats rule, dogs drool. Ok, dogs are cute even though they slobber...
+Posted: Fri Jun 08 00:30:35 +0000 2018
+Posted: Fri Jun 08 00:29:10 +0000 2018
+
+Tweet 3: My favorite gif lately. This is totally me. https://t.co/VEq6wgICC3
+
+Tweet 4: Seriously tho- what's with everything trying to look like a giant phone lately?
+Posted: Fri Jun 08 00:27:54 +0000 2018
+
+Tweet 5: Tweet! Web Development is fun :)
+Posted: Fri Jun 08 00:28:38 +0000 2018
+Posted: Fri Jun 08 00:26:59 +0000 2018
+
+Command Entered: spotify-this-song rhapsody in blue
+Name of Track: Rhapsody in Blue - Remastered
+Link to Track Preview: https://p.scdn.co/mp3-preview/7729c0e7f555c0766177d6166b73c8ff5506911c?cid=f703791f9df442d0b248963339389a87
+Album: Shostakovich: Piano Concerto No. 2 - Ravel: Piano Concerto in G Major - Gershwin: Rhapsody in Blue
+Artist: Leonard Bernstein
+
+Command Entered: spotify-this-song rhapsody in blue
+
+Name of Track: Rhapsody in Blue - Remastered
+Artist: Leonard Bernstein
+Link to Track Preview: https://p.scdn.co/mp3-preview/7729c0e7f555c0766177d6166b73c8ff5506911c?cid=f703791f9df442d0b248963339389a87
+Album: Shostakovich: Piano Concerto No. 2 - Ravel: Piano Concerto in G Major - Gershwin: Rhapsody in Blue
+
+You Entered: spotify-this-song rhapsody in blue
+
+Name of Track: Rhapsody in Blue - Remastered
+Link to Track Preview: https://p.scdn.co/mp3-preview/7729c0e7f555c0766177d6166b73c8ff5506911c?cid=f703791f9df442d0b248963339389a87
+Album: Shostakovich: Piano Concerto No. 2 - Ravel: Piano Concerto in G Major - Gershwin: Rhapsody in Blue
+Artist: Leonard Bernstein
+
+You Entered: my-tweets
+
+
+Tweet 1: Twitter reminds me
+of Emily
+Dickinson
+very     broken     lines of
+poetry
+sometimes
+Posted: Fri Jun 08 00:30:35 +0000 2018
+
+Tweet 2: Cats rule, dogs drool. Ok, dogs are cute even though they slobber...
+Posted: Fri Jun 08 00:29:10 +0000 2018
+
+Tweet 3: My favorite gif lately. This is totally me. https://t.co/VEq6wgICC3
+
+Tweet 4: Seriously tho- what's with everything trying to look like a giant phone lately?
+Posted: Fri Jun 08 00:27:54 +0000 2018
+
+Tweet 5: Tweet! Web Development is fun :)
+Posted: Fri Jun 08 00:28:38 +0000 2018
+Posted: Fri Jun 08 00:26:59 +0000 2018
+
+You Entered: my-tweets
+
+Tweet 1: Twitter reminds me
+of Emily
+Dickinson
+very     broken     lines of
+poetry
+sometimes
+Tweet 2: Cats rule, dogs drool. Ok, dogs are cute even though they slobber...
+Posted: Fri Jun 08 00:29:10 +0000 2018
+Posted: Fri Jun 08 00:30:35 +0000 2018
+Tweet 4: Seriously tho- what's with everything trying to look like a giant phone lately?
+Posted: Fri Jun 08 00:27:54 +0000 2018
+Tweet 5: Tweet! Web Development is fun :)
+Posted: Fri Jun 08 00:28:38 +0000 2018
+Tweet 3: My favorite gif lately. This is totally me. https://t.co/VEq6wgICC3
+Posted: Fri Jun 08 00:26:59 +0000 2018
+
+You Entered: my-tweets
+
+Tweet 1: Twitter reminds me
+of Emily
+Dickinson
+very     broken     lines of
+poetry
+sometimes
+Tweet 2: Cats rule, dogs drool. Ok, dogs are cute even though they slobber...
+Posted: Fri Jun 08 00:29:10 +0000 2018
+
+Tweet 3: My favorite gif lately. This is totally me. https://t.co/VEq6wgICC3
+Posted: Fri Jun 08 00:28:38 +0000 2018
+
+Tweet 4: Seriously tho- what's with everything trying to look like a giant phone lately?
+Posted: Fri Jun 08 00:30:35 +0000 2018
+
+Tweet 5: Tweet! Web Development is fun :)
+Posted: Fri Jun 08 00:27:54 +0000 2018
+
+Posted: Fri Jun 08 00:26:59 +0000 2018
+
+
+You Entered: movie-this
+
+Title: Mr. Nobody
+Rotten Tomatoes Rating: 66%
+Produced in: Belgium, Germany, Canada, France, USA, UK
+IMDB Rating: 7.9
+Language(s): English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+Year: 2009
+
+You Entered: movie-this The Maltese Falcon
+
+Title: The Maltese Falcon
+Rotten Tomatoes Rating: 100%
+Year: 1941
+Produced in: USA
+Language(s): English
+Plot: A private detective takes on a case that involves him with three eccentric criminals, a gorgeous liar, and their quest for a priceless statuette.
+IMDB Rating: 8.1
+Actors: Humphrey Bogart, Mary Astor, Gladys George, Peter Lorre
