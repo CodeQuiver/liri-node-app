@@ -197,7 +197,7 @@ var userInputSpecific = nodeArgs[3];
             readThisCall();
         }        
         else {
-            bothLog("Sorry, that's not an option. Please pick from the following: \nmy-tweets' \nspotify-this-song '<song name here>' \nmovie-this '<movie name here>' \ndo-what-it-says ");
+            bothLog("\nSorry, that's not an option. Please pick from the following: \nmy-tweets \nspotify-this-song '<song name here>' \nmovie-this '<movie name here>' \ndo-what-it-says ");
         }
     };
     // =======================END COMMAND PICK FUNCTION======================= //    
@@ -224,7 +224,7 @@ if (userCommand) {
 
 }
 else {
-    console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question! \nTo see your recent tweets, enter: node liri.js my-tweets \nTo find a song on Spotify, enter: node liri.js spotify-this-song '<song name here>' \nTo look up a movie, enter: movie-this '<movie name here>' \nTo run a command from the random.txt file, enter: do-what-it-says ");
+    console.log("Welcome to Liri, your very limited personal assistant! \nPlease ask me a question! \n\nTo see your recent tweets, enter: node liri.js my-tweets \nTo find a song on Spotify, enter: node liri.js spotify-this-song '<song name here>' \nTo look up a movie, enter: node liri.js movie-this '<movie name here>' \nTo run a command from the random.txt file, enter: node liri.js do-what-it-says ");
 }
 
 // ===========================END CODE BODY======================================================= //

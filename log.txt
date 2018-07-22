@@ -1,3 +1,39 @@
 Log for Liri App
 ================================
 
+
+You Entered: movie-this Mulan
+
+Title: Mulan
+IMDB Rating: 7.6
+Produced in: USA
+Language(s): English, Mandarin
+Year: 1998
+Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.
+Actors: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June Foray
+Rotten Tomatoes Rating: 86%
+
+You Entered: do-what-it-says
+
+Name of Track: I Want It That Way
+Album: The Hits--Chapter One
+Link to Track Preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=f703791f9df442d0b248963339389a87
+Artist: Backstreet Boys
+
+Sorry, that's not an option. Please pick from the following: 
+my-tweets 
+spotify-this-song '<song name here>' 
+movie-this '<movie name here>' 
+do-what-it-says 
+
+You Entered: jkkj
+
+
+Sorry, that's not an option. Please pick from the following: 
+my-tweets 
+spotify-this-song '<song name here>' 
+movie-this '<movie name here>' 
+do-what-it-says 
+
+You Entered: testingthis
+
