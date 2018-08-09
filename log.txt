@@ -37,3 +37,174 @@ do-what-it-says
 
 You Entered: testingthis
 
+
+You Entered: spotify-this-song
+
+Name of Track: The Sign
+Album: The Sign (US Album) [Remastered]
+Link to Track Preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=f703791f9df442d0b248963339389a87
+Artist: Ace of Base
+
+You Entered: spotify-this-song
+
+Name of Track: The Sign
+Album: The Sign (US Album) [Remastered]
+Link to Track Preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=f703791f9df442d0b248963339389a87
+Artist: Ace of Base
+
+You Entered: spotify-this-song
+
+Name of Track: The Sign
+Album: The Sign (US Album) [Remastered]
+Link to Track Preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=f703791f9df442d0b248963339389a87
+Artist: Ace of Base
+
+You Entered: spotify-this-song angel
+
+Name of Track: Angel
+Artist: Theory of a Deadman
+Link to Track Preview: https://p.scdn.co/mp3-preview/303f1e77ff52f67c85a755ed3bf1470acdb953ed?cid=f703791f9df442d0b248963339389a87
+Album: Savages
+
+You Entered: spotify-this-song angel
+
+Name of Track: Angel
+Artist: Theory of a Deadman
+Link to Track Preview: https://p.scdn.co/mp3-preview/303f1e77ff52f67c85a755ed3bf1470acdb953ed?cid=f703791f9df442d0b248963339389a87
+Album: Savages
+
+You Entered: spotify-this-song shaggy
+
+Name of Track: It Wasn't Me
+Album: The Boombastic Collection - Best of Shaggy
+Link to Track with Login (Preview unavailable): https://open.spotify.com/track/0OaunKfsxkgBvPv68jBbmm
+Artist: Shaggy
+
+You Entered: spotify-this-song duel of fates
+
+Artist: Planet Core
+Name of Track: Duel Of The Fates (Fateful Mix)
+Link to Track Preview: https://p.scdn.co/mp3-preview/bd844f580865a24a39df6011ef2c700183071ece?cid=f703791f9df442d0b248963339389a87
+Album: Duel of Fates (Star Wars Single)
+
+You Entered: movie-this Ant-Man and the wasp
+
+Title: Ant-Man and the Wasp
+IMDB Rating: 8.3
+Rotten Tomatoes Rating: 86%
+Produced in: USA
+Language(s): English
+Plot: As Scott Lang balances being both a Super Hero and a father, Hope van Dyne and Dr. Hank Pym present an urgent new mission that finds the Ant-Man fighting alongside The Wasp to uncover secrets from their past.
+Year: 2018
+Actors: Paul Rudd, Evangeline Lilly, Michael Peña, Walton Goggins
+
+Sorry, that's not an option. Please pick from the following: 
+my-tweets 
+spotify-this-song '<song name here>' 
+movie-this '<movie name here>' 
+do-what-it-says 
+
+You Entered: tweets
+
+
+You Entered: my-tweets
+
+Tweet 1: Twitter reminds me
+of Emily
+Dickinson
+very     broken     lines of
+poetry
+sometimes
+Posted: Fri Jun 08 00:30:35 +0000 2018
+
+Posted: Fri Jun 08 00:29:10 +0000 2018
+
+Tweet 3: My favorite gif lately. This is totally me. https://t.co/VEq6wgICC3
+Posted: Fri Jun 08 00:28:38 +0000 2018
+
+Tweet 2: Cats rule, dogs drool. Ok, dogs are cute even though they slobber...
+Posted: Fri Jun 08 00:27:54 +0000 2018
+
+Tweet 5: Tweet! Web Development is fun :)
+Tweet 4: Seriously tho- what's with everything trying to look like a giant phone lately?
+Posted: Fri Jun 08 00:26:59 +0000 2018
+
+
+You Entered: spotify-this-song Moon River
+
+Name of Track: Moon River
+Link to Track Preview: https://p.scdn.co/mp3-preview/3fc9d1a58bfd42a221175591e91734f85fde8b5f?cid=f703791f9df442d0b248963339389a87
+Artist: Frank Ocean
+Album: Moon River
+
+You Entered: spotify-this-song Surfing USA
+
+Name of Track: Surfside (Surfing USA Edit)
+Album: Miami Experience (Best Lounge Chillout)
+Link to Track Preview: https://p.scdn.co/mp3-preview/8f90918f2f1c0a94fb7341b4cd5847641282abb1?cid=f703791f9df442d0b248963339389a87
+Artist: Various Artists
+
+You Entered: spotify-this-song Surfin USA
+
+Name of Track: Surfin' U.S.A. - Remastered
+Artist: The Beach Boys
+Album: Surfin' USA (Remastered)
+Link to Track with Login (Preview unavailable): https://open.spotify.com/track/0wz1LjDb9ZNEYwOmDJ3Q4b
+
+You Entered: movie-this Mulan
+
+Title: Mulan
+Rotten Tomatoes Rating: 86%
+Produced in: USA
+Language(s): English, Mandarin
+Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.
+IMDB Rating: 7.6
+Actors: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June Foray
+Year: 1998
+
+You Entered: movie-this The Lion King
+
+Title: The Lion King
+Rotten Tomatoes Rating: 93%
+Year: 1994
+IMDB Rating: 8.5
+Language(s): English, Swahili, Xhosa, Zulu
+Plot: A Lion cub crown prince is tricked by a treacherous uncle into thinking he caused his father's death and flees into exile in despair, only to learn in adulthood his identity and his responsibilities.
+Produced in: USA
+Actors: Rowan Atkinson, Matthew Broderick, Niketa Calame-Harris, Jim Cummings
+
+You Entered: movie-this Mad Max: Fury Road
+
+Title: Mad Max: Fury Road
+Rotten Tomatoes Rating: 97%
+IMDB Rating: 8.1
+Produced in: Australia, USA
+Language(s): English, Russian
+Plot: In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.
+Actors: Tom Hardy, Charlize Theron, Nicholas Hoult, Hugh Keays-Byrne
+Year: 2015
+
+You Entered: do-what-it-says
+
+Name of Track: I Want It That Way
+Link to Track Preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=f703791f9df442d0b248963339389a87
+Artist: Backstreet Boys
+Album: The Hits--Chapter One
+
+You Entered: movie-this
+
+Title: Mr. Nobody
+IMDB Rating: 7.9
+Rotten Tomatoes Rating: 66%
+Produced in: Belgium, Germany, Canada, France, USA, UK
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+Year: 2009
+Language(s): English, Mohawk
+
+You Entered: spotify-this-song
+
+Name of Track: The Sign
+Artist: Ace of Base
+Album: The Sign (US Album) [Remastered]
+Link to Track Preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=f703791f9df442d0b248963339389a87
